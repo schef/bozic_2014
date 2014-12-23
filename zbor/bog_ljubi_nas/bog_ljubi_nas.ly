@@ -2,8 +2,14 @@
 \language "deutsch"
 
 \header {
-  title = "Bog ljubi nas"
-  subtitle = "Duhovne pjesme 181"
+  title = \markup {\fontsize #6 "Bog ljubi nas"}
+  subtitle = \markup {\hspace #19 \fontsize #-1 "Duhovne pjesme 181"}
+  composer = "Božić 2014"
+}
+
+\paper {
+  top-markup-spacing.padding = #5
+  markup-system-spacing.padding = #3
 }
 
 global = {
@@ -175,15 +181,15 @@ verseTwo = \lyricmode {
   % Lyrics follow here.
   Na -- vije -- sti -- te to gre -- šnim svud: "\"Bog" lju -- bi "nas!\""
   On u -- ze na se na -- šu put; Bog lju -- bi nas! 
-  Spa -- si -- telj nam se ro -- di -- o, koj smrt je za nas pod -- ni -- o,
-  sveg svije -- ta grije -- he od -- ni -- o. __ Bog lju -- bi nas!
+  Spa -- si -- telj nam se ro -- di -- o, koj smrt je za nas po -- dni -- o,
+  sveg svije -- ta grije -- he o -- dni -- o. __ Bog lju -- bi nas!
 }
 
 verseThree = \lyricmode {
   \set stanza = "3."
   % Lyrics follow here.
   Kli -- či -- te mu od ra -- do -- sti: "\"Bog" lju -- bi "nas!\""
-  Za -- hval -- 'te na pri -- jaz -- no -- sti; Bog lju -- bi nas!
+  Za -- hval -- 'te na pri -- ja --zno -- sti; Bog lju -- bi nas!
   On po -- mo -- ćnik je svi -- ma nam, lju -- bav nam svo -- ju pru -- ža sam,
   jad sva -- ki On u -- bla -- ži nam. Bog lju -- bi nas!
 }
@@ -197,9 +203,71 @@ refTenor = \lyricmode {
 Bog lju -- bi nas, Bog lju -- bi nas.
 }
 
+#(define (rest-score r)
+  (let ((score 0)
+	(yoff (ly:grob-property-data r 'Y-offset))
+	(sp (ly:grob-property-data r 'staff-position)))
+    (if (number? yoff)
+	(set! score (+ score 2))
+	(if (eq? yoff 'calculation-in-progress)
+	    (set! score (- score 3))))
+    (and (number? sp)
+	 (<= 0 2 sp)
+	 (set! score (+ score 2))
+	 (set! score (- score (abs (- 1 sp)))))
+    score))
+
+#(define (merge-rests-on-positioning grob)
+  (let* ((can-merge #f)
+	 (elts (ly:grob-object grob 'elements))
+	 (num-elts (and (ly:grob-array? elts)
+			(ly:grob-array-length elts)))
+	 (two-voice? (= num-elts 2)))
+    (if two-voice?
+	(let* ((v1-grob (ly:grob-array-ref elts 0))
+	       (v2-grob (ly:grob-array-ref elts 1))
+	       (v1-rest (ly:grob-object v1-grob 'rest))
+	       (v2-rest (ly:grob-object v2-grob 'rest)))
+	  (and
+	   (ly:grob? v1-rest)
+	   (ly:grob? v2-rest)	     	   
+	   (let* ((v1-duration-log (ly:grob-property v1-rest 'duration-log))
+		  (v2-duration-log (ly:grob-property v2-rest 'duration-log))
+		  (v1-dot (ly:grob-object v1-rest 'dot))
+		  (v2-dot (ly:grob-object v2-rest 'dot))
+		  (v1-dot-count (and (ly:grob? v1-dot)
+				     (ly:grob-property v1-dot 'dot-count -1)))
+		  (v2-dot-count (and (ly:grob? v2-dot)
+				     (ly:grob-property v2-dot 'dot-count -1))))
+	     (set! can-merge
+		   (and 
+		    (number? v1-duration-log)
+		    (number? v2-duration-log)
+		    (= v1-duration-log v2-duration-log)
+		    (eq? v1-dot-count v2-dot-count)))
+	     (if can-merge
+		 ;; keep the rest that looks best:
+		 (let* ((keep-v1? (>= (rest-score v1-rest)
+				      (rest-score v2-rest)))
+			(rest-to-keep (if keep-v1? v1-rest v2-rest))
+			(dot-to-kill (if keep-v1? v2-dot v1-dot)))
+		   ;; uncomment if you're curious of which rest was chosen:
+		   ;;(ly:grob-set-property! v1-rest 'color green)
+		   ;;(ly:grob-set-property! v2-rest 'color blue)
+		   (ly:grob-suicide! (if keep-v1? v2-rest v1-rest))
+		   (if (ly:grob? dot-to-kill)
+		       (ly:grob-suicide! dot-to-kill))
+		   (ly:grob-set-property! rest-to-keep 'direction 0)
+		   (ly:rest::y-offset-callback rest-to-keep)))))))
+    (if can-merge
+	#t
+	(ly:rest-collision::calc-positioning-done grob))))
+
+
 \score {
   \new ChoirStaff <<
     \new Staff \with {
+      \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "Soprano" "Alto" }
     } <<
@@ -214,11 +282,9 @@ Bog lju -- bi nas, Bog lju -- bi nas.
     }
     \new Lyrics = "verse3" \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    }    
-       \new Lyrics = "reftenor" \with {
-      \override VerticalAxisGroup #'staff-affinity = #DOWN
-    } 
+    }     
     \new Staff \with {
+      \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
       instrumentName = \markup \center-column { "Tenor" "Bass" }
     } <<
@@ -226,12 +292,10 @@ Bog lju -- bi nas, Bog lju -- bi nas.
       \new Voice = "tenor" { \voiceOne \tenor }
       \new Voice = "bass" { \voiceTwo \bass }
     >>
- 
-    
     \context Lyrics = "verse1" \lyricsto "soprano" \verseOne
     \context Lyrics = "verse2" \lyricsto "soprano" {\verseTwo \refSoprano}
-    \context Lyrics = "verse3" \lyricsto "soprano" \verseThree
-    \context Lyrics = "reftenor" \lyricsto "tenor" {\repeat unfold 36 {_} \refTenor}
+    \context Lyrics = "verse3" \lyricsto "bass" {\verseThree \refTenor}
+ %   \context Lyrics = "verse3" \lyricsto "tenor" {\repeat unfold 36 {_} \refTenor}
   >>
   \layout { }
   \midi {
