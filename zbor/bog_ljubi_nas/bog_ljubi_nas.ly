@@ -189,9 +189,9 @@ verseThree = \lyricmode {
   \set stanza = "3."
   % Lyrics follow here.
   Kli -- či -- te mu od ra -- do -- sti: "\"Bog" lju -- bi "nas!\""
-  Za -- hval -- 'te na pri -- ja --zno -- sti; Bog lju -- bi nas!
+  Za -- hval -- 'te na pri -- ja -- zno -- sti; Bog lju -- bi nas!
   On po -- mo -- ćnik je svi -- ma nam, lju -- bav nam svo -- ju pru -- ža sam,
-  jad sva -- ki On u -- bla -- ži nam. Bog lju -- bi nas!
+  jad sva -- ki On u -- bla -- ži nam. __ Bog lju -- bi nas!
 }
 
 refSoprano = \lyricmode {
