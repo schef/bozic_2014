@@ -167,7 +167,7 @@ verseOne = \lyricmode {
   Za -- poj -- te svi od ra -- do -- sti: "\"Bog" lju -- bi "nas!\""
   Kli -- či -- te Bo -- žjoj mi -- lo -- sti: "\"Bog" lju -- bi "nas!\""
   Pro -- bud -- 'te se iz greš -- nog sna, nek sva -- tko tra -- ži I -- su -- sa,
-  ko -- ga Bog za spas du -- še da! Bog lju -- bi nas!
+  ko -- ga Bog za spas du -- še da! __ Bog lju -- bi nas!
 }
 
 verseTwo = \lyricmode {
@@ -176,7 +176,7 @@ verseTwo = \lyricmode {
   Na -- vije -- sti -- te to gre -- šnim svud: "\"Bog" lju -- bi "nas!\""
   On u -- ze na se na -- šu put; Bog lju -- bi nas! 
   Spa -- si -- telj nam se ro -- di -- o, koj smrt je za nas pod -- ni -- o,
-  sveg svije -- ta grije -- he od -- ni -- o. Bog lju -- bi nas!
+  sveg svije -- ta grije -- he od -- ni -- o. __ Bog lju -- bi nas!
 }
 
 verseThree = \lyricmode {
@@ -190,7 +190,7 @@ verseThree = \lyricmode {
 
 refSoprano = \lyricmode {
   Bog lju -- bi nas, Bog lju -- bi nas.
-  Za -- poj -- te svi od ra -- do -- sti: "\"Bog" lju -- bi "nas!\""
+  Za -- poj -- te svi od ra -- do -- sti: __ "\"Bog" lju -- bi "nas!\""
 }
 
 refTenor = \lyricmode {
