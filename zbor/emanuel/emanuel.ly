@@ -1,4 +1,6 @@
 \version "2.18.2"
+%typesetter: schef
+%date: 23-12-2014
 
 \language "deutsch"
 
@@ -11,6 +13,7 @@
 \paper {
   top-markup-spacing.padding = #5
   markup-system-spacing.padding = #1.5
+  system-system-spacing.padding = #0
 }
 
 global = {
@@ -28,12 +31,24 @@ sopMusic = \relative c'' {
   \global
   \set Score.currentBarNumber = #20
   \mark \markup { \box \bold 20 }
-  r4 a4 a gis8( a) |
+  r4 a4^\markup {
+  \general-align #X #CENTER {
+    \hspace #1 \epsfile #X #4 #"../../svg/smile_happy.eps"
+    %\epsfile #Y #20 #"context-example.eps"
+  }
+}
+a gis8( a) |
   \time 2/4
   a2 ~ |
   \time 4/4
   a1 |
-  r2 r4 cis, | \bar "||"
+  r2 r4 cis,^\markup {
+  \general-align #X #CENTER {
+    \epsfile #X #4 #"../../svg/smile_sad.eps"
+    %\epsfile #Y #20 #"context-example.eps"
+  }
+}
+  | \bar "||"
   
   \mark \markup { \box \bold 24 }
   d2 ( ~ d8 cis ) h4 |
@@ -53,19 +68,24 @@ sopMusic = \relative c'' {
   fis8 gis gis4 gis8 a a( fis )
   r1 |
   fis8 gis gis4 gis8 a a4 ~ |
-  a4 r4 r8 cis8 h a |
+  a2 r8 cis8 h a |
   
   \mark \markup { \box \bold 36 }
   fis8 gis gis4 gis8 a a4 |
-  a8 h h2. ~ |
-  \time 2/4 h4 h8 ( cis ) |
+  a8 h h2.^\markup {
+  \general-align #X #CENTER {
+    \hspace #1 \epsfile #X #4 #"../../svg/smile_open.eps"
+    %\epsfile #Y #20 #"context-example.eps"
+  }
+} |
+  \time 2/4 r4 h8 ( cis ) |
   
   \time 4/4
   d4( cis h) cis8( a)
   a1 |
   
   %prima start
-  \set Score.repeatCommands = #'((volta "1.2.") end-repeat)
+  \set Score.repeatCommands = #'((volta "1.2."))
   r4 a4 a gis8( a) |
   a2 r4 e4 
   %:|
@@ -105,10 +125,10 @@ altoMusic = \relative c'' {
   fis8 gis gis4 gis8 a a( fis )
   r1 |
   d8 e e4 e8 fis fis4 ~ |
-  fis4 r4 r2 |
+  fis2 r2 |
   d8 e e4 e8 fis fis4 |
-  fis8 g g2. ~ |
-  g4 g8( a) |
+  fis8 g g2. |
+  r4 g8( a) |
   h4( a g) a8( fis) |
   fis1 |
   r4 a4 a gis8 ( a) a2 r4 cis, |
@@ -131,27 +151,27 @@ tenorMusic = \relative c' {
   a2 ~ |
   \time 4/4
   a1 |
-  r2 r4 e | \bar "||"
+  r2 r4 e\p\< | \bar "||"
   
-  f2 ~ ( f8 e ) d4 e2 r4 e4 |
-  f4 ( g8 a ~ a g ) f4 |
-  e2 r4 a4 |
+  f2 ~ ( f8\> e ) d4 e2\! r4 e4 |
+  f4\< ( g8 a ~ a\> g ) f4 |
+  e2\! r4 a4\mp |
   
   a2. a4 a2 r4 a4 |
   a2. a4 a4 r4 |
   
-  fis8 gis gis4 gis8 a a( fis )
+  fis8\f gis gis4 gis8 a a( fis )
   r1 |
-  a8 h h4 h8 cis cis4 ~ cis r4 r8 cis8 h a |
+  a8 h h4 h8 cis cis4 ~ cis2 r8 cis8 h a |
   
   a8 h h4 h8 cis cis4 |
-  cis8 d d2. ~ |
-  d4 h8( cis) |
+  cis8 d d2. |
+  r4 h8( cis) |
   
   d4 ( cis h) cis4 |
   cis2. ( d4 )
   r4 a a gis8( a) |
-  a2 r4 a |
+  a2 r4 a\mp |
   r2 r4 e4 |
   h'4 a a2 ~ a2 r4 e |
   h'4 a a2 |
@@ -180,9 +200,9 @@ bassMusic = \relative c' {
   
   fis8 gis gis4 gis8 a a( fis )
    r1 |
-  a8 h h4 h8 cis cis4 ~ cis r4 r8 cis8 h a |
-  d,8 e e4 e8 fis fis4 |
-  fis8 g g2. ~ g4 g8( a) 
+  a8 h h4 h8 cis cis4 ~ cis2 r2 |
+  d,8\ff e e4 e8 fis fis4 |
+  fis8 g g2. r4 g8( a) 
   
   h4 ( a g) a8( fis) |
   fis1 |
