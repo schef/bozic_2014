@@ -22,47 +22,47 @@ global = {
 soprano = \relative c' {
   \global
   % Music follows here.
-  d8 d d d f f f g |
-  d4( c) b r8 b8 |
-  b2 es4 d8 d |
-  r2. f,8 f |
-  d'8 d d d f f f g |
-  d4 c b r8 b8 |
-  b4 b d c8 b |
+%  d8 d d d f f f g |
+%  d4( c) b r8 b8 |
+%  b2 es4 d8 d |
+%  r2. f,8 f |
+%  d'8 d d d f f f g |
+%  d4 c b r8 b8 |
+%  b4 b d c8 b |
+r1
+\repeat unfold 6 s1
   r2. r8 b8 |
   
   b8 d d d( d4) r8 d8 |
   d8 f f f( f4) d8 f |
-  f8 g r4 f8 f d4 |
-  c8 b c4 d r8 b8 |
-  b8 d4 d8( d4) r8 d8 |
+  f8 g ~ g4 f8 f d4 |
+  c8 b c8( d) d4 r8 b8 |
+  d8 d4 d8( d4) r8 d8 |
   d8( f4) f8( f4) d8 f |
-  es2 ~ es2 |
+  es2( f2) |
   
-  c'2 b8 c b a |
-  \repeat volta 2{
+  c4. r8 b'8 c b a |
+  %repeat
   g2 a |
-  f2 b8 c b a |
+  f4 r4 b8 c b a |
   g2 a2 |
-  f2 b8 c b a |
+  f4 r4 b8 c b a |
   g2 a |
-  b2 f8 es d f |
-  }
-  \alternative{
-  {
+  b4 r4 f8 es d f |
+  
+  \set Score.repeatCommands = #'((volta "1. 3."))
     es2.( f4) |
-    c2 b'8 c b a |
-  }
-  {
+    c4 r4 b'8 c b a |
+  \set Score.repeatCommands = #'((volta #f)(volta "2.") end-repeat)
     es2.( f4) |
     c2. r4 |
-  }
-  }
+  \set Score.repeatCommands = #'((volta #f)(volta "4."))
   \bar "||"
   
  % \break
-  es2.^\markup{Coda}( f4) |
-  c2 d8 c c b |
+  es2. ( f4) |
+  c4 r4 d8 c c b |
+  \set Score.repeatCommands = #'((volta #f))
   c4 b2. |
   r2 d8 c c b |
   c4 b2. |
@@ -79,34 +79,36 @@ alto = \relative c' {
   d'8 d d d f f f g |
   d4 c b r8 b8 |
   b4 b d c8 b |
-  r2. r8 b8 |
+%  r2. r8 b8 |
   
-  b8 d d d( d4) r8 d8 |
-  d8 f f f( f4) d8 f |
-  f8 g r4 f8 f d4 |
-  c8 b c4 d r8 b8 |
-  b8 d4 d8( d4) r8 d8 |
-  d8( f4) f8( f4) d8 f |
-  es2 ~ es2 |
+%  b8 d d d( d4) r8 d8 |
+%  d8 f f f( f4) d8 f |
+%  f8 g ~ g4 f8 f d4 |
+%  c8 b c8( d) d4 r8 b8 |
+%  d8 d4 d8( d4) r8 d8 |
+%  d8( f4) f8( f4) d8 f |
+%  es2( f2) |
   
-  c2 f8 g f f | 
+%  c4. r8 f8 g f f | 
+\repeat unfold 8 s1
+r2 f'8 g f f
   \bar ".|:"
   es2 f |
-  d2 f8 g f f |
+  d4 r4 f8 g f f |
   es2 f2 |
-  d2 f8 g f f |
+  d4 r4 f8 g f f |
   es2 f |
-  g2 d8 c b d |
+  g4 r4 d8 c b d |
   
   es2.( f4) |
-  c2 f8 g f f |
+  c4 r4 f8 g f f |
 
   es2.( f4) |
-  c2. r4
+  c2. r4^\markup { \tiny \raise #1 \musicglyph #"scripts.segno" }
   \bar "||"
   
   es2.( f4) |
-  c2 d8 c c b |
+  c4 r4 d8 c c b |
   c4 b2. |
   r2 d8 c c b |
   c4 b2. |
@@ -124,31 +126,33 @@ tenor = \relative c' {
   b8 b b b c c c c |
   b4 a g r8 g8 |
   g4 g b a8 b |
-  r2. r8 d,8 |
+%  r2. r8 d,8 |
   
-  d8 f f f( f4) r8 f8 |
-  f8 a a a( a4) f8 a8 |
-  a8 b r4 b8 b f4 |
-  es8 d es4 f r8 d8 |
-  d8 f4 f8( f4) r8 f8 |
-  f8( a4) a8( a4) f8 a |
-  g2( b2) |
+%  d8 f f f( f4) r8 f8 |
+%  f8 a a a( a4) f8 a8 |
+%  a8 b ~ b4 b8 b f4 |
+%  es8 d es8( f) f4 r8 d8 |
+%  f8 f4 f8( f4) r8 f8 |
+%  f8( a4) a8( a4) f8 a |
+%  g2( b2) |
  
-  a2 d8 es d c |
+%  a4. r8 d8 es d c |
+\repeat unfold 8 s1
+r2 d8 es d c |
   \bar ".|:"
   b2 c |
-  b2 d8 es d c |
+  b4 r4 d8 es d c |
   b2 c |
-  b2 d8 es d c |
+  b4 r4 d8 es d c |
   
   b2 c |
-  d2 b8 g f b |
+  d4 r4 b8 g f b |
   g2.( b4) |
-  a2 d8  es d c |
+  a4 r4 d8  es d c |
   
   g2.( b4) a2. r4 |
   
-  g2.( b4) a2 f8 es es d |
+  g2.( b4) a4 r4 f8 es es d |
   es4 d2. |
   r2 f8 es es d |
   es4 d2. |
@@ -158,38 +162,40 @@ tenor = \relative c' {
 bass = \relative c' {
   \global
   % Music follows here.
-  b8 b b b c c c c |
-  b4( a) g r8 g8 |
-  g2 b4 b8 b |
-  r2. f8 f |
-  b8 b b b c c c c |
-  b4 a g r8 g8 |
-  g4 g b a8 b |
+%  b8 b b b c c c c |
+%  b4( a) g r8 g8 |
+%  g2 b4 b8 b |
+%  r2. f8 f |
+%  b8 b b b c c c c |
+%  b4 a g r8 g8 |
+%  g4 g b a8 b |
+r1
+\repeat unfold 6 s1
   r2. r8 d,8 |
   
   d8 f f f( f4) r8 f8 |
   f8 a a a( a4) f8 a8 |
-  a8 b r4 b8 b f4 |
-  es8 d es4 f r8 d8 |
-  d8 f4 f8( f4) r8 f8 |
+  a8 b ~ b4 b8 b f4 |
+  es8 d es8( f) f4 r8 d8 |
+  f8 f4 f8( f4) r8 f8 |
   f8( a4) a8( a4) f8 a |
   g2( b2) |
   
-  a2 d8 es d c |
+  a4. r8 d8 es d c |
   \bar ".|:"
   b2 c |
-  b2 d8 es d c |
+  b4 r4 d8 es d c |
   b2 c |
-  b2 d8 es d c |
+  b4 r4 d8 es d c |
   
   b2 c |
-  d2 b8 g f b |
+  d4 r4 b8 g f b |
   g2.( b4) |
-  a2 d8  es d c |
+  a4 r4 d8  es d c |
   
   g2.( b4) a2. r4 |
   
-  g2.( b4) a2 f8 es es d |
+  g2.( b4) a4 r4 f8 es es d |
   es4 d2. |
   r2 f8 es es d |
   es4 d2. |
@@ -198,9 +204,9 @@ bass = \relative c' {
 akordi = \chordmode {
   %\semiGermanChords
   \set chordChanges = ##t
-  b1 | g1:m | es | b | b2 f |
+  b2 f2/a | g1:m | es | b | b2 f/a |
   g1:m | es2 f | b1 | b | f |
-  g2:m b | f b | b1 | f | f |
+  es2 b | f b | b1 | d:m | es |
   f |
   
   es2 f | b1 | es2 f | b1 | es2 f | g1:m |
@@ -208,11 +214,15 @@ akordi = \chordmode {
   b1 | b:sus4 | b |
 }
 
+altText = \lyricmode {
+    I -- ma ta -- ko pu -- no lo -- ših vije -- sti iz da -- na u dan,
+  a po an -- đe -- lu je do -- šla je -- dna do -- bra vijest to ni -- je sa -- mo san.
+}
+
 verseOne = \lyricmode {
   %\set stanza = "1."
   % Lyrics follow here.
-  I -- ma ta -- ko pu -- no lo -- ših vije -- sti iz da -- na u dan,
-  a po an -- đe -- lu je do -- šla je -- dna do -- bra vijest to ni -- je sa -- mo san.
+
   Ne pla -- ši -- te se, ne pla -- ši -- te se jer vam, e -- vo, do -- no -- sim
   ra -- do -- snu vijest o ve -- li -- kom ve -- se -- lju za sav na -- rod:
   
@@ -305,7 +315,10 @@ verseOne = \lyricmode {
     }
     \new Lyrics = "verse3" \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
-    }     
+    } 
+        \new Lyrics = "alttext" \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    }
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
@@ -316,6 +329,7 @@ verseOne = \lyricmode {
       \new Voice = "bass" { \voiceTwo \bass }
     >>
     \context Lyrics = "verse1" \lyricsto "soprano" \verseOne
+    \context Lyrics = "alttext" \lyricsto "alto" \altText
   >>
   \layout { }
   \midi {
