@@ -10,6 +10,7 @@
 \paper {
   top-markup-spacing.padding = #5
   markup-system-spacing.padding = #3
+  indent = 0
 }
 
 global = {
@@ -21,9 +22,9 @@ soprano = \relative c' {
   \global
   % Music follows here.
   %REFREN
-  d4 fis8 g a4 a |
-  h4 cis d2 |
-  e2 cis4. cis8 |
+  d4\staccato fis8\staccato g\staccato a4\staccato a\staccato |
+  h4\tenuto cis\tenuto d2\tenuto |
+  e2 cis4 r8 cis8 |
   d2. r4 |
   d,4 fis8 g a4 a |
   
@@ -31,10 +32,10 @@ soprano = \relative c' {
   cis2 h4. h8 |
   a2. r4 |
   g4 g8 fis e4 g4 |
-  fis4 d'4 a2 |
+  fis4 d'4 a4 r4 |
   
   g4 g8 fis e4 g |
-  fis4 d' a2 |
+  fis4 d' a4 r4 |
   d4 d8 d d4 d |
   e4 d cis4( h) |
   
@@ -59,9 +60,9 @@ alto = \relative c' {
   \global
   % Music follows here.
   %KITICA
-  d4 d8 e fis4 fis |
-  g4 g fis2 |
-  g2 e4. e8 |
+  d4\staccato d8\staccato e\staccato fis4\staccato fis\staccato |
+  g4\tenuto g\tenuto fis2\tenuto |
+  g2 e4 r8 e8 |
   fis2. r4 |
   d4 d8 e fis4 fis |
   
@@ -69,10 +70,10 @@ alto = \relative c' {
   e2 d4. d8 |
   cis2. r4 |
   e4 e8 d cis4 e |
-  d4 fis4 fis2 |
+  d4 fis4 fis4 r4 |
   
   e4 e8 d cis4 e4 |
-  d4 fis fis2 |
+  d4 fis fis4 r4 |
   fis4 fis8 g a4 fis4 |
   g4 g g2 |
   
@@ -97,9 +98,9 @@ tenor = \relative c {
   \global
   % Music follows here.
   %KITICA
-  fis4 a8 a d4 d |
-  d4 a4 a2 |
-  h2 a4. a8 |
+  fis4\staccato a8\staccato a\staccato d4\staccato d\staccato |
+  d4\tenuto a4\tenuto a2\tenuto |
+  h2 a4 r8 a8 |
   a2. r4 |
   fis4 a8 a d4 d |
   
@@ -120,9 +121,9 @@ tenor = \relative c {
   
   %REFREN
   r1 |
-  a4 a8. a16 a4 r4 |
+  a4\staccato a8. a16 a4\tenuto r4 |
   r1 |
-  a4 a8. a16 a4 r4 |
+  a4\staccato a8. a16 a4\tenuto r4 |
   a4 a8 a a4 a |
   h4 h cis4( d) |
   d2 a4. a8 |
@@ -134,35 +135,35 @@ bass = \relative c {
   \global
   % Music follows here.
   %KITICA
-  d4 d8 d d4 d |
-  g4 e4 d2 |
-  g2 a4. a,8 |
+  d4\staccato d8\staccato d\staccato d4\staccato d\staccato |
+  g4\tenuto e4\tenuto d2\tenuto |
+  g2 a4 r8 a,8 |
   d2. r4 |
   d4 d8 d d4 d |
   
   g4 e d2 |
   e2 e4. e8 |
   a,2. r4 |
-  a4 a8 d a'4 a, |
-  d4 d d2 |
+  a4\staccato\p a8\staccato\< d\staccato a'4 a,\mf\> |
+  d4\tenuto d\tenuto d4\tenuto\! r4 |
   
-  a4 a8 d a'4 a, |
-  d4 d d2 |
-  d4 d8 e fis4 d4 |
+  a4\staccato\p a8\staccato\< d\staccato a'4 a,\mf\> |
+  d4\tenuto d\tenuto d4\tenuto\! r4 |
+  d4 d8\< e fis4 d4 |
   g4 g g2 |
   
-  a2 a,4. a8 |
+  a2\!\f a,4. a8 |
   d2. r4 |
   \bar "||"
   
   %REFREN
   r1 |
-  a4 a8. a16 a4 r4 |
+  a4\staccato a8. a16 a4\tenuto r4 |
   r1 |
-  d4 d8. d16 d4 r4 |
-  d4 d8 e fis4 d4 |
+  d4\staccato d8. d16 d4\tenuto r4 |
+  d4\mf\< d8 e fis4 d4 |
   g4 g g2 |
-  a2 a,4. a8 |
+  a2\!\f a,4. a8 |
   d2. r4 |
   \bar "|."
 }
@@ -181,7 +182,7 @@ verseTwo = \lyricmode {
   % Lyrics follow here.
   Na -- vije -- sti -- te to gre -- šnim svud: "\"Bog" lju -- bi "nas!\""
   On u -- ze na se na -- šu put; Bog lju -- bi nas! 
-  Spa -- si -- telj nam se ro -- di -- o, koj smrt je za nas po -- dni -- o,
+  Spa -- si -- telj nam se ro -- di -- o, koj' smrt je za nas po -- dni -- o,
   sveg svije -- ta grije -- he o -- dni -- o. __ Bog lju -- bi nas!
 }
 
@@ -201,6 +202,11 @@ refSoprano = \lyricmode {
 
 refTenor = \lyricmode {
 Bog lju -- bi nas, Bog lju -- bi nas.
+}
+
+akordi = \chordmode {
+  \semiGermanChords
+   
 }
 
 #(define (rest-score r)
@@ -266,10 +272,11 @@ Bog lju -- bi nas, Bog lju -- bi nas.
 
 \score {
   \new ChoirStaff <<
+    %\new ChordNames {\akordi}
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
-      instrumentName = \markup \center-column { "Soprano" "Alto" }
+      %instrumentName = \markup \center-column { "S" "A" }
     } <<
       \new Voice = "soprano" { \voiceOne \soprano }
       \new Voice = "alto" { \voiceTwo \alto }
@@ -286,7 +293,7 @@ Bog lju -- bi nas, Bog lju -- bi nas.
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
-      instrumentName = \markup \center-column { "Tenor" "Bass" }
+      %instrumentName = \markup \center-column { "T" "B" }
     } <<
       \clef bass
       \new Voice = "tenor" { \voiceOne \tenor }

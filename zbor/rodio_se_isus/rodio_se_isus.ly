@@ -195,6 +195,19 @@ bass = \relative c' {
   es4 d2. |
 }
 
+akordi = \chordmode {
+  %\semiGermanChords
+  \set chordChanges = ##t
+  b1 | g1:m | es | b | b2 f |
+  g1:m | es2 f | b1 | b | f |
+  g2:m b | f b | b1 | f | f |
+  f |
+  
+  es2 f | b1 | es2 f | b1 | es2 f | g1:m |
+  es1 | f | es | f | es  | f |
+  b1 | b:sus4 | b |
+}
+
 verseOne = \lyricmode {
   %\set stanza = "1."
   % Lyrics follow here.
@@ -275,6 +288,7 @@ verseOne = \lyricmode {
 
 \score {
   \new ChoirStaff <<
+    \new ChordNames {\akordi}
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
