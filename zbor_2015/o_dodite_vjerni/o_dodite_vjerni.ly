@@ -2,9 +2,9 @@
 \language "deutsch"
 
 \header {
-  title = \markup {\fontsize #6 "Božićna se pjesma čuje"}
-  subtitle = \markup {\hspace #19 \fontsize #-1 "Pušćine, Dravska 2, Božić 2015."}
-  composer = "Felix Mendelsohn"
+  title = \markup {\fontsize #6 "O dođite vjerni"}
+  subtitle = \markup {\hspace #19 \fontsize #-1 "BC Pušćine, Božić 2015."}
+  composer = ""
 }
 
 \paper {
@@ -18,122 +18,117 @@ global = {
   \time 4/4
 }
 
-soprano = \relative c' {
+soprano = \relative c'' {
   \global
   % Music follows here.
-  d4 g g4. fis8 |
-  g4 h h a |
-  d4 d d4. c8 |
-  h4 a h2 |
-  d,4 g g4. fis8 |
+  \partial 4
+  g4 |
+  g2 d4 g |
+  a2 d, |
+  h'4 a h c |
+  h2 a4 g |
+  g2 fis4 e |
+  fis4( g) a h |
+  fis2 e4.( d8) |
+  d2. r4 |
   
-  g4 h h a |
-  d4 a a4. fis8 |
-  fis4 e d2 |
-  d'4 d d g, |
-  c4 h h( a) |
+  d'2 c4 h |
+  c2 h |
+  a4 h g a 
+  fis4. e8 d4 g |
+  g4 fis g a |
+  g2 d4 h' |
   
-  d4 d d g, |
-  c4 h h( a) |
-  e'4 e e d |
-  c4 h c2 |
-  a4 h8( c) d4. g,8 |
-  
-  g4 a h2 |
-  e4. e8 e4 d4 |
-  c4 h c2 |
-  a4 h8( c) d4. g,8 |
-  
-  g4 a4 g2 |
+  h4 a h c |
+  h2 a4 h |
+  c4 h a g |
+  fis2 g4 c |
+  h2 a4.( g8) |
+  g2. r4 |
   \bar "|."
-  
 }
 
 alto = \relative c' {
   \global
   % Music follows here.
-  d4 d d4. d8 |
-  d4 g g fis |
-  g4 fis e a |
+  d4 |
+  d2 d4 d |
+  e2 d |
+  d4 d d e |
+  d2 d4 h |
+  h4 cis d cis |
+  d4( d) d d |
+  d2 cis4.( d8) |
+  d2. r4 |
+  
+  d2 e8 fis g4 |
   g4 fis g2 |
-  d4 d d4. c8 |
-  
-  h4 g'4 g2 |
-  fis4 fis fis4. d8 |
-  d4 cis d2 |
-  d4 d d g |
-  a4 g g( fis) |
-  
-  d4 d d g |
-  a4 g g( fis) |
-  c'4 c c h |
-  a4 gis a2 |
-  fis 4 fis g4. d8 |
-  
-  d4 fis g2 |
-  c4. c8 c4 h |
-  a4 gis a2 |
-  d,4 fis g4. d8 |
-  
-  d4 fis g2 |
+  d4 d e e |
+  d2 d4 r4 |
+  r1 |
+  r1 |
+  d4 d d d |
+  d2. g4 |
+  e8 fis g4 d d8 cis |
+  d2 d4 e |
+  d2 d4.( h8) |
+  h2. r4 |
 }
 
 tenor = \relative c' {
   \global
   % Music follows here.
-  h4 h h4. a8 |
-  h4 d d2 |
-  d4 d e e |
-  d4 d d2 |
-  h4 h h4. a8 |
+  h4 |
+  h2 h4 h |
+  c2 a |
+  g4 a g g |
+  g2 fis4 g |
+  g2 a4 a |
+  a4( g) fis g |
+  a2 g4.( fis8) |
+  fis2. r4 |
   
-  g4 d' e2 |
-  d4 e a,4. a8 |
-  h4 a fis2 |
-  d'4 d d d |
-  d4 d d2 |
+  h2 c4 d |
+  c2 d |
+  a4 g h c |
+  a4. g8 fis4 h |
+  h4 a h c |
+  h2 g4 g |
   
-  d4 d d d |
-  d4 d d2 |
-  e4 e e f |
-  e4 d c2 |
-  d4 d d4. h8 |
-  
-  h4 d d2 |
-  e4. e8 e4 d |
-  c4 h c2 |
-  d4 d d4. h8 |
-  
-  h4 c h2 |
+  g4 fis g a |
+  g2 fis4 d' |
+  c4 d a a |
+  a2 g |
+  g2 fis4.( g8) |
+  g2. r4 |
 }
 
 bass = \relative c' {
   \global
   % Music follows here.
-  g4 g g4. d8 |
-  g4 g d2 |
-  h4 h c c |
-  d4 d g2 |
-  g4 g g4. d8 |
+  g4 |
+  g2 g4 g |
+  g2 fis |
+  g4 fis g c, |
+  d2 d4 e |
+  e2 d4 a |
+  d4( h) fis' e |
+  a,2 a4.( d8) |
+  d2. r4 |
   
-  e4 d cis4. a8 |
-  h4 cis d fis |
-  g4 g d2 |
-  d'4 d d h |
-  fis4 g d2 |
+  h'2 a4 g |
+  a2 g |
+  fis4 g e c |
+  d2 d4 r4 |
+  r1 |
+  r1 |
   
-  d'4 d d h |
-  fis4 g d2 |
-  c4 c c d |
-  e4 e a2 |
-  d4 c h4. g8 |
-  
-  d4 d g2 |
-  c4. c8 c4 h |
-  a4 gis a2 |
-  fis4 c'4 h4. g8 |
-  
-  d4 d g2 |
+  r1 |
+  r2 r4 g4 |
+  a4 g fis e |
+  d4 c h c |
+  d2 d4.( d8) |
+  g,2. r4 |
 }
 
 dropLyrics = {
@@ -153,28 +148,20 @@ raiseLyrics = {
 skipFour = \repeat unfold 4 { \skip 8 }
 
 verseOne = \lyricmode {
-  \set stanza = "1."
+  %\set stanza = "1."
   % Lyrics follow here.
-  Bo -- ži -- ćna se pje -- sma ču -- je,
-  sla -- va kra -- lju ro -- đe -- nom.
-  Do -- ni -- o je mir na ze -- mlju, čo -- vje -- čan -- stvu spa -- se -- nje.
+  O do -- đi -- te vjer -- ni ra -- do -- sno i slo -- žno
+  svi do -- đi -- te sa -- da u Be -- tle -- hem. __
+  Dje -- te -- tu ne -- ba svi se sad po -- klo -- ni -- te
   
-  Ra -- duj -- te se na -- ro -- di, __ kli -- či -- te u zbo -- ru svi! __
-  Ne -- ka svije -- tom od -- zva -- nja, pje -- sma no -- ve ra -- do -- sti!
-  \dropLyrics
-  Za -- pje -- vaj -- mo ra -- do -- sno: Sla -- va kra -- lju ro -- đe -- nom!
+  O hva -- li -- mo -- ga sa -- da o hva -- li -- mo ga sa -- da
+  O hva -- li -- mo svi Go -- spo -- da I -- su -- sa. __
 }
 
 verseTwo = \lyricmode {
   \set stanza = "2."
   % Lyrics follow here.
-  Mi -- ro -- no -- sni Princ je ro -- đen,
-  sun -- ce pra -- vde za -- sja nam.
-  Svje -- tlo, ži -- vot On je na -- ma, i -- sti -- na i pra -- vi put.
   
-  Sla -- vu je na -- pu -- sti -- o, __ čo -- vje -- kom je po -- sta -- o, __
-  ro -- đen da nas po -- di -- gne, no -- vi __ ži -- vot po -- da -- ri.
-  %Za -- pje -- vaj -- mo ra -- do -- sno: Sla -- va kra -- lju ro -- đe -- nom!
 }
 
 
@@ -271,7 +258,7 @@ akordi = \chordmode {
       \new Voice = "bass" { \voiceTwo \bass }
     >>
     \context Lyrics = "verse1" \lyricsto "soprano" \verseOne
-    \context Lyrics = "verse2" \lyricsto "soprano" \verseTwo
+    %\context Lyrics = "verse2" \lyricsto "soprano" \verseTwo
   >>
   \layout { }
   \midi {
