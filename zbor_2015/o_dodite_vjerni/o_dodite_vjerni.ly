@@ -29,7 +29,7 @@ soprano = \relative c'' {
   h2 a4 g |
   g2 fis4 e |
   fis4( g) a h |
-  fis2 e4.( d8) |
+  fis2\( e4.\) d8 |
   d2. r4 |
   
   d'2 c4 h |
@@ -43,7 +43,7 @@ soprano = \relative c'' {
   h2 a4 h |
   c4 h a g |
   fis2 g4 c |
-  h2 a4.( g8) |
+  h2( a4.) g8 |
   g2. r4 |
   \bar "|."
 }
@@ -58,7 +58,7 @@ alto = \relative c' {
   d2 d4 h |
   h4 cis d cis |
   d4( d) d d |
-  d2 cis4.( d8) |
+  d2( cis4.) d8 |
   d2. r4 |
   
   d2 e8 fis g4 |
@@ -71,7 +71,7 @@ alto = \relative c' {
   d2. g4 |
   e8 fis g4 d d8 cis |
   d2 d4 e |
-  d2 d4.( h8) |
+  d2( d4.) h8 |
   h2. r4 |
 }
 
@@ -85,7 +85,7 @@ tenor = \relative c' {
   g2 fis4 g |
   g2 a4 a |
   a4( g) fis g |
-  a2 g4.( fis8) |
+  a2( g4.) fis8 |
   fis2. r4 |
   
   h2 c4 d |
@@ -99,7 +99,7 @@ tenor = \relative c' {
   g2 fis4 d' |
   c4 d a a |
   a2 g |
-  g2 fis4.( g8) |
+  g2( fis4.) g8 |
   g2. r4 |
 }
 
@@ -113,7 +113,7 @@ bass = \relative c' {
   d2 d4 e |
   e2 d4 a |
   d4( h) fis' e |
-  a,2 a4.( d8) |
+  a,2( a4.) d8 |
   d2. r4 |
   
   h'2 a4 g |
@@ -127,7 +127,7 @@ bass = \relative c' {
   r2 r4 g4 |
   a4 g fis e |
   d4 c h c |
-  d2 d4.( d8) |
+  d2( d4.) d8 |
   g,2. r4 |
 }
 
@@ -148,20 +148,30 @@ raiseLyrics = {
 skipFour = \repeat unfold 4 { \skip 8 }
 
 verseOne = \lyricmode {
-  %\set stanza = "1."
+  \set stanza = "1."
   % Lyrics follow here.
-  O do -- đi -- te vjer -- ni ra -- do -- sno i slo -- žno
-  svi do -- đi -- te sa -- da u Be -- tle -- hem. __
-  Dje -- te -- tu ne -- ba svi se sad po -- klo -- ni -- te
+  O, do -- đi -- te vjer -- ni, ra -- do -- sno i slo -- žno,
+  svi do -- đi -- te sa -- da u Be -- _ tle -- hem. __
+  Dje -- te -- tu ne -- ba svi se sad po -- klo -- ni -- te.
   
-  O hva -- li -- mo -- ga sa -- da o hva -- li -- mo ga sa -- da
-  O hva -- li -- mo svi Go -- spo -- da I -- su -- sa. __
+
 }
 
 verseTwo = \lyricmode {
   \set stanza = "2."
   % Lyrics follow here.
+  Nek zvu -- ci se o -- re, an -- đe -- o -- ske pje -- sme.
+  Hajd' pje -- vaj -- te sa -- da svi na -- _ ro -- di. __ Sla -- va i hva -- la Bo -- gu na vi -- si -- _ ni.
   
+  O, hva -- li -- mo -- ga sa -- da, o hva -- li -- mo ga sa -- da,
+  o, hva -- li -- mo svi Go -- spo -- da I -- su -- sa! __
+}
+
+verseThree = \lyricmode {
+  \set stanza = "3."
+  % Lyrics follow here.
+  Mi sla -- vi -- mo te -- be, I -- su -- se naš dra -- gi, nek' te -- bi je sla -- va
+  za sve vje -- ko -- ve. __ Ti sa -- mo mo -- žeš i -- zba -- vi -- ti lju -- de.
 }
 
 
@@ -248,6 +258,9 @@ akordi = \chordmode {
     \new Lyrics = "verse2" \with {
       \override VerticalAxisGroup #'staff-affinity = #CENTER
     }   
+    \new Lyrics = "verse3" \with {
+      \override VerticalAxisGroup #'staff-affinity = #CENTER
+    }
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
@@ -258,7 +271,8 @@ akordi = \chordmode {
       \new Voice = "bass" { \voiceTwo \bass }
     >>
     \context Lyrics = "verse1" \lyricsto "soprano" \verseOne
-    %\context Lyrics = "verse2" \lyricsto "soprano" \verseTwo
+    \context Lyrics = "verse2" \lyricsto "soprano" \verseTwo
+    \context Lyrics = "verse3" \lyricsto "soprano" \verseThree
   >>
   \layout { }
   \midi {
