@@ -22,7 +22,7 @@ soprano = \relative c'' {
   \global
   % Music follows here.
   \partial 4
-  g4 |
+  g4\f |
   g2 d4 g |
   a2 d, |
   h'4 a h c |
@@ -32,19 +32,19 @@ soprano = \relative c'' {
   fis2\( e4.\) d8 |
   d2. r4 |
   
-  d'2 c4 h |
+  d'2\> c4 h |
   c2 h |
-  a4 h g a 
-  fis4. e8 d4 g |
+  a4 h g a
+  fis4. e8\! d4 g\p |
   g4 fis g a |
-  g2 d4 h' |
+  g2 d4 h'\mf |
   
   h4 a h c |
-  h2 a4 h |
+  h2 a4 h\f |
   c4 h a g |
   fis2 g4 c |
   h2( a4.) g8 |
-  g2. r4 |
+  g2.
   \bar "|."
 }
 
@@ -64,15 +64,15 @@ alto = \relative c' {
   d2 e8 fis g4 |
   g4 fis g2 |
   d4 d e e |
-  d2 d4 r4 |
+  d4. d8 d4 r4 |
   r1 |
-  r1 |
+  r2 r4 d4 |
   d4 d d d |
-  d2. g4 |
+  d2 d4 g4 |
   e8 fis g4 d d8 cis |
   d2 d4 e |
   d2( d4.) h8 |
-  h2. r4 |
+  h2. 
 }
 
 tenor = \relative c' {
@@ -98,9 +98,9 @@ tenor = \relative c' {
   g4 fis g a |
   g2 fis4 d' |
   c4 d a a |
-  a2 g |
+  a2 g4 g |
   g2( fis4.) g8 |
-  g2. r4 |
+  g2.
 }
 
 bass = \relative c' {
@@ -119,7 +119,7 @@ bass = \relative c' {
   h'2 a4 g |
   a2 g |
   fis4 g e c |
-  d2 d4 r4 |
+  d4. d8 d4 r4 |
   r1 |
   r1 |
   
@@ -128,7 +128,7 @@ bass = \relative c' {
   a4 g fis e |
   d4 c h c |
   d2( d4.) d8 |
-  g,2. r4 |
+  g,2.
 }
 
 dropLyrics = {
@@ -171,13 +171,37 @@ verseThree = \lyricmode {
   \set stanza = "3."
   % Lyrics follow here.
   Mi sla -- vi -- mo te -- be, I -- su -- se naš dra -- gi, nek' te -- bi je sla -- va
-  za sve vje -- ko -- ve. __ Ti sa -- mo mo -- žeš i -- zba -- vi -- ti lju -- de.
+  za sve vje -- ko -- ve. __ Ti sa -- mo mo -- žeš i -- zba -- vi -- ti lju -- _ de.
 }
 
 
 akordi = \chordmode {
   \semiGermanChords
-   
+  \set chordChanges = ##t
+  \partial 4
+  g4 |
+  g1 |
+  a2:m d |
+  g4 d g c |
+  g2 d2 |
+  e2:m d4 a |
+  d4 g d g |
+  d2 a4 d |
+  d2. d4:7 |
+  d2 a4:m g |
+  a2:m g |
+  d4 g e:m a:m |
+  d1 |
+  g4 d g d:7 |
+  g1 |
+  g4 d g d:7 |
+  g2 d |
+  a4:m g d a |
+  d2 g4 c |
+  g2 d |
+  g2. 
+  
+  
 }
 
 #(define (rest-score r)
@@ -243,7 +267,7 @@ akordi = \chordmode {
 
 \score {
   \new ChoirStaff <<
-    %\new ChordNames {\akordi}
+    \new ChordNames {\akordi}
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"

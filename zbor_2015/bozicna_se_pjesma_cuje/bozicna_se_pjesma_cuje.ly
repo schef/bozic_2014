@@ -30,17 +30,17 @@ soprano = \relative c' {
   g4 h h a |
   d4 a a4. fis8 |
   fis4 e d2 |
-  d'4 d d g, |
-  c4 h h( a) |
+  d'4\p d d g, |
+  c4\< h h(\> a) |
   
-  d4 d d g, |
-  c4 h h( a) |
-  e'4 e e d |
+  d4\p d d g, |
+  c4 h\< h( a) |
+  e'4\f e e d |
   c4 h c2 |
   a4 h8( c) d4. g,8 |
   
   g4 a h2 |
-  e4. e8 e4 d4 |
+  e4.\ff e8 e4 d4 |
   c4 h c2 |
   a4 h8( c) d4. g,8 |
   
@@ -58,7 +58,7 @@ alto = \relative c' {
   g4 fis g2 |
   d4 d d4. c8 |
   
-  h4 g'4 g2 |
+  h4 g'4 g4 g |
   fis4 fis fis4. d8 |
   d4 cis d2 |
   d4 d d g |
@@ -82,12 +82,12 @@ tenor = \relative c' {
   \global
   % Music follows here.
   h4 h h4. a8 |
-  h4 d d2 |
+  h4 d d4 d |
   d4 d e e |
   d4 d d2 |
   h4 h h4. a8 |
   
-  g4 d' e2 |
+  g4 d' e4 e |
   d4 e a,4. a8 |
   h4 a fis2 |
   d'4 d d d |
@@ -111,7 +111,7 @@ bass = \relative c' {
   \global
   % Music follows here.
   g4 g g4. d8 |
-  g4 g d2 |
+  g4 g d4 d |
   h4 h c c |
   d4 d g2 |
   g4 g g4. d8 |
@@ -180,6 +180,27 @@ verseTwo = \lyricmode {
 
 akordi = \chordmode {
   \semiGermanChords
+  \set chordChanges = ##t
+   g2 g4. d8 |
+   g2 d2 | 
+   g4 h:m c2 |
+   g4 d g2 |
+   g2 g4. d8 |
+   e2:m a4/cis a |
+   h4:m a d2 |
+   g4 a d2 |
+   g1 |
+   d4:7 g2 d4 |
+   g1 |
+   d4:7 g2 d4 |
+   c2. h4:dim |
+   a4:m e:7 a2:m |
+   d2 g |
+   g4 d g2 |
+   c1 |
+   g4 e:7 a2:m |
+   d2 g2 |
+   g4 d g2 |
    
 }
 
@@ -246,7 +267,7 @@ akordi = \chordmode {
 
 \score {
   \new ChoirStaff <<
-    %\new ChordNames {\akordi}
+    \new ChordNames {\akordi}
     \new Staff \with {
       \override RestCollision.positioning-done = #merge-rests-on-positioning
       midiInstrument = "choir aahs"
